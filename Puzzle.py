@@ -55,8 +55,9 @@ def Button_Blitzcrank_onMouseAction(x, y, action):
     Map_Blitzcrank.enter()
     puzzle = []
 
-    global blank
+    global blank, n
     blank = 6
+    n = 3
 
     for i in range(9):
          filename = 'Images/블리츠크랭크/블리츠크랭크_'+str(i)+'.png'
@@ -65,46 +66,84 @@ def Button_Blitzcrank_onMouseAction(x, y, action):
          y=460-200*(i//3)
          puzzle[i].locate(Map_Blitzcrank, x, y)
          puzzle[i].show()
-         puzzle[i].onMouseAction = lambda x, y, action, picture=puzzle[i], index=i : puzzleClick(x, y, action, picture, index)
+         puzzle[i].onMouseAction = lambda x, y, action, obj=puzzle[i], index=i : puzzleClick(x, y, action, obj, index)
 
     puzzle[blank].hide()
 
+    #key = list(range(0,9))
 
-    #  zle[2])
-# def swap(x, y):
-#     z = x
-#     x = y
-#     y = z
 
-    def puzzleClick(x, y, action, picture, index):
+    def puzzleClick(x, y, action, obj, index):
         global blank
-
-        print(index)
-        print(puzzle[index])
-        print(puzzle[blank])
+        global n
+        
+        # print('index '+str(index)+' -> '+str(blank))
+        # print('blank '+str(blank)+' -> '+str(index))       
+        # print(n)
+        # print(index)
+        # print(blank)
+        # print(puzzle[index])
+        # print(puzzle[blank])
         # if index==blank - 3 or index==blank-1 or index==blank+1 or index==blank + 3:
         #     print("true")
         #     print("a", puzzle[i], puzzle[blank])
         #     puzzle[i], puzzle[blank] = puzzle[blank], puzzle[i]
         #     print("b", puzzle[i], puzzle[blank])
-        puzzle[index].locate(Map_Blitzcrank, 380+200*(blank%3), 460-200*(blank//3))   
-        puzzle[blank].locate(Map_Blitzcrank, 380+200*(index%3), 460-200*(index//3))        
+        if (index % n > 0 and index - 1 == blank) or \
+           (index % n < n - 1 and index + 1 == blank) or \
+           (index > n - 1 and index - n == blank) or \
+           (index < n*n - n and index + n == blank):
+ 
 
-        temp = Object('temp')
-        temp = puzzle[index]
+                puzzle[index].locate(Map_Blitzcrank, 380+200*(blank%3), 460-200*(blank//3))   
+                puzzle[blank].locate(Map_Blitzcrank, 380+200*(index%3), 460-200*(index//3))        
+                
 
-        puzzle[index] = puzzle[blank]
-        puzzle[index].hide()
+                # temp = Object('temp')
+                # temp = puzzle[index]
+                
+                puzzle[index] = puzzle[blank]
+                #puzzle[index].hide()
 
-        puzzle[blank] = temp
-        puzzle[blank].show()
+                puzzle[blank] = obj
 
-        blank = index
+               # puzzle[blank].show()
+                # print('temp4 ')
+                # print('puzzle4 ')
+                # print('blank4 ')
+                # print(temp)
+                # print(puzzle[index])
+                # print(puzzle[blank])
+
+
+                # global temp2
+                # temp2 = blank
+                # print('1단계')
+                # print(temp2)
+                # print(index)
+                # print(blank)
+                blank = index
+                # print('2단계')
+                # print(temp2)
+                # print(index)
+                # print(blank)
+                # index = temp2
+                # print('3단계')
+                # print(temp2)
+                # print(index)
+                # print(blank)
+
+        # temp3 = key[blank]
+        # key[blank] = key[index]
+        # key[index] = temp3
+
 
         # swap(index, blank)
 
         # blank = i
         # swap(puzzle[i], puzzle[blank])
+
+# if index < n or index == k*n or index == k*n - 1 or index > n** - n - 1 :
 
             
 
@@ -132,7 +171,7 @@ def Button_Blitzcrank_onMouseAction(x, y, action):
 
 
 
-Ready_Button.show()
+#Ready_Button.show()
 
 
 

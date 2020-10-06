@@ -49,8 +49,6 @@ def End_Button_onMouseAction(x, y, action):
 End_Button.onMouseAction = End_Button_onMouseAction
 
 
-
-
 def Button_Blitzcrank_onMouseAction(x, y, action):
     Map_Blitzcrank.enter()
     puzzle = []
@@ -66,22 +64,25 @@ def Button_Blitzcrank_onMouseAction(x, y, action):
          y=460-200*(i//3)
          puzzle[i].locate(Map_Blitzcrank, x, y)
          puzzle[i].show()
-         puzzle[i].onMouseAction = lambda x, y, action, obj=puzzle[i], index=i : puzzleClick(x, y, action, obj, index)
+         puzzle[i].onMouseAction = lambda x, y, action, obj=puzzle[i] : puzzleClick(x, y, action, obj)
+         
 
     puzzle[blank].hide()
 
     #key = list(range(0,9))
 
 
-    def puzzleClick(x, y, action, obj, index):
+    def puzzleClick(x, y, action, obj):
         global blank
         global n
         
+        for i, p in enumerate(puzzle):
+            if p == obj:
+                index = i
+
         # print('index '+str(index)+' -> '+str(blank))
         # print('blank '+str(blank)+' -> '+str(index))       
         # print(n)
-        # print(index)
-        # print(blank)
         # print(puzzle[index])
         # print(puzzle[blank])
         # if index==blank - 3 or index==blank-1 or index==blank+1 or index==blank + 3:
@@ -89,15 +90,14 @@ def Button_Blitzcrank_onMouseAction(x, y, action):
         #     print("a", puzzle[i], puzzle[blank])
         #     puzzle[i], puzzle[blank] = puzzle[blank], puzzle[i]
         #     print("b", puzzle[i], puzzle[blank])
+
         if (index % n > 0 and index - 1 == blank) or \
            (index % n < n - 1 and index + 1 == blank) or \
            (index > n - 1 and index - n == blank) or \
            (index < n*n - n and index + n == blank):
- 
 
                 puzzle[index].locate(Map_Blitzcrank, 380+200*(blank%3), 460-200*(blank//3))   
                 puzzle[blank].locate(Map_Blitzcrank, 380+200*(index%3), 460-200*(index//3))        
-                
 
                 # temp = Object('temp')
                 # temp = puzzle[index]
@@ -131,7 +131,6 @@ def Button_Blitzcrank_onMouseAction(x, y, action):
                 # print('3단계')
                 # print(temp2)
                 # print(index)
-                # print(blank)
 
         # temp3 = key[blank]
         # key[blank] = key[index]

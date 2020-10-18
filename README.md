@@ -1,3 +1,5 @@
+https://cafe.naver.com/bangtal
+
 # PuzzleLOL.python
 
 아직 만들고 있어요.. 중간에 막힌 것도 있고

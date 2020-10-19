@@ -1,8 +1,6 @@
+도움 : https://cafe.naver.com/bangtal
+
 # PuzzleLOL.python
-
-아직 만들고 있어요.. 중간에 막힌 것도 있고
-
-이미지 만드는 데에 생각 보다 많은 시간이 들어가고 있어요..
 
 -----
 
@@ -25,3 +23,14 @@
 승리(클리어)나 패배(항복) 시 한번 더하기 누르면 다시 메인으로 감
 
 종료 누르면 종료
+
+![image](https://user-images.githubusercontent.com/48724199/96405408-2f7a6e80-1218-11eb-837b-71c089e5c2a1.png)
+
+![image](https://user-images.githubusercontent.com/48724199/96405432-3b663080-1218-11eb-974b-e73fb981bac4.png)
+
+![image](https://user-images.githubusercontent.com/48724199/96405565-884a0700-1218-11eb-9716-6c54daba3801.png)
+
+![image](https://user-images.githubusercontent.com/48724199/96405580-90a24200-1218-11eb-98b8-3ed9e224147a.png)
+
+![image](https://user-images.githubusercontent.com/48724199/96418245-6c049500-122d-11eb-9788-20c12b889d0d.png)
+
